@@ -27,6 +27,7 @@ export default function Home() {
               <span className="eyebrow">{category.eyebrow}</span>
               <h3>{category.name}</h3>
               <p>{category.description}</p>
+              <span className="card-cta">View category →</span>
             </Link>
           ))}
         </div>

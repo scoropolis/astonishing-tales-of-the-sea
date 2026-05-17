@@ -25,6 +25,7 @@ export default function CategoriesPage() {
               <h2>{category.name}</h2>
               <p>{category.description}</p>
               <div className="kicker-list"><div>{category.promise}</div><div>{count} seeded article{count === 1 ? "" : "s"}</div></div>
+              <span className="card-cta">View category →</span>
             </Link>
           );
         })}

@@ -75,6 +75,7 @@ p { color: var(--muted); line-height: 1.65; }
 .category-card, .article-card { padding: 24px; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
 .category-card:hover, .article-card:hover { transform: translateY(-3px); border-color: rgba(231,184,90,.5); background: var(--panel-strong); }
 .category-card .eyebrow { margin-bottom: 12px; display: block; }
+.card-cta { display: inline-flex; margin-top: 16px; color: var(--gold); font-weight: 800; font-size: .9rem; }
 .article-meta { display: flex; gap: 8px; flex-wrap: wrap; color: var(--blue); font-size: .82rem; margin-bottom: 12px; }
 .kicker-list { display: grid; gap: 12px; margin-top: 20px; }
 .kicker-list div { border-left: 2px solid var(--gold); padding-left: 14px; color: #dbe8eb; }
