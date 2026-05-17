@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   turbopack: {
-    root: "/Users/stanger/Projects/astonishing-tales-of-the-sea",
+    root: process.cwd(),
   },
 };
 
