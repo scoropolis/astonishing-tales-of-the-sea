@@ -55,6 +55,7 @@ export function getAllArticles() {
         body: content,
       } satisfies Article;
     })
+    .filter((article) => !article.draft)
     .sort((a, b) => {
       if (a.featured !== b.featured) return a.featured ? -1 : 1;
       return a.publishedAt.localeCompare(b.publishedAt);

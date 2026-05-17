@@ -4,8 +4,8 @@ import { getAllArticles } from "@/lib/content";
 import { getCategory } from "@/lib/categories";
 
 export const metadata: Metadata = {
-  title: "Articles",
-  description: "Seeded maritime articles for Astonishing Tales of the Sea.",
+  title: "Stories",
+  description: "Maritime stories from Astonishing Tales of the Sea.",
 };
 
 export default function ArticlesPage() {
@@ -13,19 +13,29 @@ export default function ArticlesPage() {
   return (
     <main>
       <section className="hero">
-        <span className="eyebrow">Articles</span>
-        <h1>The first case files are on the chart.</h1>
-        <p className="lede">These are seeded draft slots. Article Ops can expand them into full source-led pieces.</p>
+        <span className="eyebrow">Stories</span>
+        <h1>Maritime stories worth reading closely.</h1>
+        <p className="lede">Each piece follows the evidence, the human decisions, and the sea conditions behind the story.</p>
       </section>
-      <section className="section grid article-grid">
-        {articles.map((article) => (
-          <Link className="article-card" href={`/articles/${article.slug}`} key={article.slug}>
-            <div className="article-meta"><span>{getCategory(article.category)?.name}</span><span>·</span><span>{article.primaryKeyword}</span></div>
-            <h3>{article.title}</h3>
-            <p>{article.excerpt}</p>
-          </Link>
-        ))}
-      </section>
+      {articles.length > 0 ? (
+        <section className="section grid article-grid">
+          {articles.map((article) => (
+            <Link className="article-card" href={`/articles/${article.slug}`} key={article.slug}>
+              <div className="article-meta">
+                <span>{getCategory(article.category)?.name ?? "Story"}</span>
+                {article.primaryKeyword ? <><span>·</span><span>{article.primaryKeyword}</span></> : null}
+              </div>
+              <h3>{article.title}</h3>
+              <p>{article.excerpt || article.description}</p>
+              <span className="card-cta">Read the story →</span>
+            </Link>
+          ))}
+        </section>
+      ) : (
+        <section className="section empty-state">
+          <p>The first story is being prepared. Once it is published, it will appear here.</p>
+        </section>
+      )}
     </main>
   );
 }

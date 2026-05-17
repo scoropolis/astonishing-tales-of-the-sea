@@ -33,15 +33,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <span>{site.name}</span>
           </Link>
           <nav aria-label="Main navigation">
-            <Link href="/articles">Articles</Link>
-            <Link href="/categories">Categories</Link>
+            <Link href="/articles">Stories</Link>
+            <Link href="/categories">Subjects</Link>
             <Link href="/about">About</Link>
           </nav>
         </header>
         {children}
         <footer className="site-footer">
           <p>{site.name}</p>
-          <p>Source-led maritime stories without disaster-porn.</p>
+          <p>{site.tagline}</p>
         </footer>
       </body>
     </html>

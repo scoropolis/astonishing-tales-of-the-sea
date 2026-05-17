@@ -4,17 +4,17 @@ import { categories } from "@/lib/categories";
 import { getArticlesByCategory } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Categories",
-  description: "Article categories for Astonishing Tales of the Sea.",
+  title: "Subjects",
+  description: "Story subjects for Astonishing Tales of the Sea.",
 };
 
 export default function CategoriesPage() {
   return (
     <main>
       <section className="hero">
-        <span className="eyebrow">Categories</span>
-        <h1>Disasters, voyages, shipbuilding, and captain&apos;s-eye decisions.</h1>
-        <p className="lede">A simple article map for the first version of Astonishing Tales of the Sea.</p>
+        <span className="eyebrow">Subjects</span>
+        <h1>Disasters, voyages, shipbuilding, and command at sea.</h1>
+        <p className="lede">A map of the waters this site will explore.</p>
       </section>
       <section className="section grid category-grid">
         {categories.map((category) => {
@@ -24,8 +24,8 @@ export default function CategoriesPage() {
               <span className="eyebrow">{category.eyebrow}</span>
               <h2>{category.name}</h2>
               <p>{category.description}</p>
-              <div className="kicker-list"><div>{category.promise}</div><div>{count} seeded article{count === 1 ? "" : "s"}</div></div>
-              <span className="card-cta">View category →</span>
+              {count > 0 ? <p className="article-count">{count} stor{count === 1 ? "y" : "ies"}</p> : null}
+              <span className="card-cta">Explore →</span>
             </Link>
           );
         })}

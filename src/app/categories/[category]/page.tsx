@@ -28,15 +28,24 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         <h1>{category.name}</h1>
         <p className="lede">{category.description}</p>
       </section>
-      <section className="section grid article-grid">
-        {articles.length ? articles.map((article) => (
-          <Link className="article-card" href={`/articles/${article.slug}`} key={article.slug}>
-            <div className="article-meta"><span>{article.primaryKeyword}</span><span>·</span><span>{article.sourceConfidence}</span></div>
-            <h3>{article.title}</h3>
-            <p>{article.excerpt}</p>
-          </Link>
-        )) : <div className="panel"><p>No articles seeded yet. This category is ready for Article Ops.</p></div>}
-      </section>
+      {articles.length > 0 ? (
+        <section className="section grid article-grid">
+          {articles.map((article) => (
+            <Link className="article-card" href={`/articles/${article.slug}`} key={article.slug}>
+              <div className="article-meta">
+                <span>{article.primaryKeyword || "Maritime history"}</span>
+              </div>
+              <h3>{article.title}</h3>
+              <p>{article.excerpt || article.description}</p>
+              <span className="card-cta">Read the story →</span>
+            </Link>
+          ))}
+        </section>
+      ) : (
+        <section className="section empty-state">
+          <p>No stories have been published in this subject yet.</p>
+        </section>
+      )}
     </main>
   );
 }

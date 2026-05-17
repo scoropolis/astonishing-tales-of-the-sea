@@ -54,7 +54,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <p className="lede">{article.description}</p>
           <div className="fact-card">
             <div className="article-meta">
-              <span>{formatDate(article.publishedAt)}</span><span>·</span><span>{article.primaryKeyword}</span><span>·</span><span>{article.sourceConfidence}</span>
+              <span>{formatDate(article.publishedAt)}</span>{article.primaryKeyword ? <><span>·</span><span>{article.primaryKeyword}</span></> : null}
             </div>
             <p>{article.excerpt}</p>
           </div>
